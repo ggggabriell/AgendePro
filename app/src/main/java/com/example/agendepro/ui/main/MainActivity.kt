@@ -1,4 +1,4 @@
-package com.example.agendepro
+package com.example.agendepro.ui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
