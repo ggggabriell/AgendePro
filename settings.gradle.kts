@@ -22,12 +22,13 @@ dependencyResolutionManagement {
 
 rootProject.name = "AgendePro"
 include(":app")
+include(":auth")
 include(":common")
 include(":core:navigation")
 include(":core:ui")
 include(":core:network")
 include(":core:database")
-include(":auth")
-include(":calendar")
-include(":client")
-include(":notifications")
+include(":feature:calendar")
+include(":feature:client")
+include(":feature:home")
+include(":feature:notifications")
