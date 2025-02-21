@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.agendepro"
+    namespace = "com.agendepro.agendepro"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.agendepro"
+        applicationId = "com.agendepro.agendepro"
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -29,20 +29,31 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
+        freeCompilerArgs += "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api"
         jvmTarget = "17"
     }
+
     buildFeatures {
         compose = true
         buildConfig = true
     }
+
 }
 
 dependencies {
+    api(project(":common"))
+    api(project(":core:navigation"))
+    api(project(":core:database"))
+    api(project(":core:ui"))
+
+    implementation(project(":feature:home"))
 
     implementation(platform(libs.compose.bom))
     androidTestImplementation(platform(libs.compose.bom))

@@ -16,8 +16,19 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "AgendePro"
 include(":app")
+include(":auth")
+include(":common")
+include(":core:navigation")
+include(":core:ui")
+include(":core:network")
+include(":core:database")
+include(":feature:calendar")
+include(":feature:client")
+include(":feature:home")
+include(":feature:notifications")
