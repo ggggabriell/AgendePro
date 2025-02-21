@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.agendepro.calendar.ui.CalendarScreen
 
 @Composable
 fun HomeScreen(
@@ -28,6 +29,7 @@ fun HomeScreen(
             contentAlignment = Alignment.Center
         ) {
             Text(text = uiState.someValue)
+            CalendarScreen()
         }
     }
 }

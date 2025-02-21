@@ -54,6 +54,7 @@ dependencies {
     api(project(":core:ui"))
 
     implementation(project(":feature:home"))
+    implementation(project(":feature:calendar"))
 
     implementation(platform(libs.compose.bom))
     androidTestImplementation(platform(libs.compose.bom))
