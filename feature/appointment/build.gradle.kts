@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.agendepro.calendar"
+    namespace = "com.agendepro.appointment"
     compileSdk = 35
 
     defaultConfig {
