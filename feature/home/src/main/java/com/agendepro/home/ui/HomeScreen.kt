@@ -28,7 +28,6 @@ fun HomeScreen(
                 .padding(padding),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = uiState.someValue)
             CalendarScreen()
         }
     }
