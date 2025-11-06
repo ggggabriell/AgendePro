@@ -42,8 +42,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koin)
-    implementation(libs.koin.android)
+    api(platform(libs.koin.bom))
+    api(libs.bundles.koin)
+    api(libs.koin.android)
     ksp(libs.koin.ksp.compiler)
 }

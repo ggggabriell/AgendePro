@@ -1,4 +1,4 @@
-package com.agendepro.calendar.data.model
+package com.agendepro.calendar.domain.model
 
 import java.time.LocalDate
 

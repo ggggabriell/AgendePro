@@ -18,8 +18,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import java.time.LocalDate
+import java.time.format.TextStyle
+import java.util.Locale
+import com.agendepro.ui.R as UiR
 
 @Composable
 fun CalendarHeader(
@@ -27,6 +31,14 @@ fun CalendarHeader(
     isExpanded: Boolean,
     onToggle: () -> Unit
 ) {
+    val locale = Locale.getDefault()
+
+    val monthName = currentDate.month.getDisplayName(TextStyle.FULL, locale)
+        .replaceFirstChar { it.titlecase(locale) }
+
+    val year = currentDate.year
+
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -36,17 +48,20 @@ fun CalendarHeader(
         horizontalArrangement = Arrangement.Start
     ) {
         Text(
-            text = "${currentDate.month.name.lowercase().replaceFirstChar { it.uppercaseChar() }}, ${currentDate.year}",
+            text = "${monthName}, $year",
             style = MaterialTheme.typography.titleLarge
         )
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        val rotation by animateFloatAsState(if (isExpanded) 180f else 0f, label = "arrow_rotation")
+        val rotation by animateFloatAsState(
+            targetValue = if (isExpanded) 180f else 0f,
+            label = "arrow_rotation"
+        )
 
         Icon(
             imageVector = Icons.Default.KeyboardArrowDown,
-            contentDescription = "Toggle Calendar",
+            contentDescription = stringResource(UiR.string.arrow_down),
             modifier = Modifier.rotate(rotation)
         )
     }
