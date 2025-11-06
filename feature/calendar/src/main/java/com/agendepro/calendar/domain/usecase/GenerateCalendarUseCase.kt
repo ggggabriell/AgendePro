@@ -1,15 +1,20 @@
 package com.agendepro.calendar.domain.usecase
 
-import com.agendepro.calendar.data.model.CalendarData
+import com.agendepro.calendar.domain.model.CalendarData
+import com.agendepro.calendar.domain.model.constant.CalendarConstants.DAYS_IN_WEEK
 import java.time.LocalDate
 
-
+/**
+ * Use case to generate the calendar grid.
+ */
 class GenerateCalendarUseCase {
 
-    operator fun invoke(date: LocalDate = LocalDate.now()): CalendarData {
+    companion object {
+        const val FIRST_DAY = 1
+    }
 
-        // Generate the full calendar for the given month and year
-        val firstDayOfMonth = date.withDayOfMonth(1)
+    operator fun invoke(date: LocalDate = LocalDate.now()): CalendarData {
+        val firstDayOfMonth = date.withDayOfMonth(FIRST_DAY)
         val daysInMonth = date.lengthOfMonth()
         val startingDay = firstDayOfMonth.dayOfWeek.ordinal
 
@@ -37,7 +42,7 @@ class GenerateCalendarUseCase {
             firstDayOfMonth.plusDays(it.toLong())
         }
 
-        val remainingCells = (7 - (dayGrid.size % 7)) % 7
+        val remainingCells = (DAYS_IN_WEEK - (dayGrid.size % DAYS_IN_WEEK)) % DAYS_IN_WEEK
         return dayGrid + List(remainingCells) { null }
     }
 }
