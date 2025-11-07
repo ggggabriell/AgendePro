@@ -1,6 +1,9 @@
 package com.agendepro.calendar.ui.components
 
-import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,6 +23,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.text.style.TextAlign
 import com.agendepro.calendar.R
@@ -36,6 +40,14 @@ fun CalendarContent(
 ) {
     var isExpanded by remember { mutableStateOf(true) }
 
+    val animationDurationMillis = 200
+    val alphaCalendarAnimation by animateFloatAsState(
+        targetValue = if (isExpanded) 1f else 0f,
+        animationSpec = tween(
+            durationMillis = animationDurationMillis,
+            easing = FastOutSlowInEasing
+        )
+    )
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,27 +59,34 @@ fun CalendarContent(
             onToggle = { isExpanded = !isExpanded }
         )
 
-        AnimatedVisibility(visible = isExpanded) {
-            CalendarGrid(
-                days = state.days,
-                currentDate = state.currentDate,
-                onDateClick = { date ->
-                    onAction(CalendarAction.DateSelected(date))
-                }
-            )
-        }
+        CalendarGrid(
+            days = state.days,
+            currentDate = state.currentDate,
+            onDateClick = { date ->
+                onAction(CalendarAction.DateSelected(date))
+            },
+            modifier = Modifier
+                .alpha(alphaCalendarAnimation)
+                .animateContentSize(
+                    animationSpec = tween(
+                        durationMillis = animationDurationMillis,
+                        easing = FastOutSlowInEasing
+                    )
+                )
+        )
     }
 }
 
 @Composable
 private fun CalendarGrid(
+    modifier: Modifier = Modifier,
     days: List<LocalDate?>,
     currentDate: LocalDate,
     onDateClick: (LocalDate) -> Unit
 ) {
     val dayNames = stringArrayResource(R.array.days_of_week_short).toList()
 
-    Column {
+    Column(modifier = modifier) {
         // Weekday Header
         WeekdayHeader(dayNames = dayNames)
 
