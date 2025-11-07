@@ -42,8 +42,13 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.bundles.compose)
+
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.bundles.compose)
     implementation(libs.material)
+
+    implementation(platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
+    implementation(libs.koin.android)
+    ksp(libs.koin.ksp.compiler)
 }

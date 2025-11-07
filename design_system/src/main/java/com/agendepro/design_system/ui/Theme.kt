@@ -34,18 +34,20 @@ private val DarkColorScheme = darkColorScheme(
     onPrimary = OnPrimary,
     onSecondary = OnSecondary,
     error = Error,
-    onError = OnError
+    onError = OnError,
+    outline = Gray80
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple80,
     secondary = Pink80,
-    background = Background,
-    surface = Surface,
-    onBackground = OnBackground,
-    onSurface = OnSurface,
+    background = OnBackground,
+    surface = OnSurface,
+    onBackground = Background,
+    onSurface = Surface,
     onPrimary = OnPrimary,
     onSecondary = OnSecondary,
     error = Error,
-    onError = OnError
+    onError = OnError,
+    outline = Gray80
 )

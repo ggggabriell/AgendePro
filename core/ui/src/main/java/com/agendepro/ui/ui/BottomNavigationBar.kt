@@ -13,9 +13,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.agendepro.ui.ui.theme.Gray80
+import com.agendepro.design_system.ui.MaterialThemeExtensions.spacing
 import java.util.Locale
 
 @Composable
@@ -23,8 +22,8 @@ fun BottomNavigationBar(navController: NavHostController) {
     Column {
         HorizontalDivider(
             modifier = Modifier.fillMaxWidth(),
-            thickness = 1.dp,
-            color = Gray80
+            thickness = MaterialTheme.spacing.borderWidth,
+            color = MaterialTheme.colorScheme.outline
         )
 
         NavigationBar {
@@ -33,12 +32,15 @@ fun BottomNavigationBar(navController: NavHostController) {
                 when (screen) {
                     "home" -> {
                         NavigationBarItem(
-                            label = { Text(screen.capitalize(Locale.ROOT)) },
+                            label = {
+                                Text(screen.replaceFirstChar {
+                                    if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString()
+                                })
+                            },
                             selected = false,
                             onClick = { navController.navigate(screen) },
                             icon = { Icon(Icons.Default.Home, contentDescription = screen) },
-                            modifier = Modifier
-                                .background(MaterialTheme.colorScheme.surface)
+                            modifier = Modifier.background(MaterialTheme.colorScheme.surface)
                         )
                     }
                 }
