@@ -1,4 +1,4 @@
-package com.agendepro.calendar.ui
+package com.agendepro.calendar.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -13,8 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import com.agendepro.ui.ui.theme.Purple40
+import com.agendepro.design_system.ui.MaterialThemeExtensions.spacing
 import java.time.LocalDate
 
 @Composable
@@ -27,10 +26,10 @@ fun DayCell(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .padding(4.dp)
-            .size(40.dp)
+            .padding(MaterialTheme.spacing.extraSmall)
+            .size(MaterialTheme.spacing.extraExtraLarge)
             .clip(CircleShape)
-            .background(if (isSelected) Purple40 else MaterialTheme.colorScheme.surface)
+            .background(if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface)
             .clickable { onClick() }
     ) {
         Text(

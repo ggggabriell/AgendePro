@@ -19,6 +19,7 @@ data class Spacing(
     val huge: Dp = 48.dp,
     val extraHuge: Dp = 64.dp,
 
+    val borderWidth: Dp = 1.dp,
     val buttonPadding: Dp = 16.dp,
     val cardPadding: Dp = 16.dp,
     val screenPadding: Dp = 16.dp,

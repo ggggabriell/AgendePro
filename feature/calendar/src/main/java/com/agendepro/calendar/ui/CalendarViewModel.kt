@@ -7,7 +7,6 @@ import com.agendepro.calendar.ui.model.CalendarAction
 import com.agendepro.calendar.ui.model.CalendarUiState
 import com.agendepro.common.ui.STOP_TIMEOUT_MILLIS
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -38,8 +37,6 @@ class CalendarViewModel(
     private fun loadCalendar() {
         viewModelScope.launch(errorHandler) {
             _uiState.value = CalendarUiState.Loading
-            delay(1000) // Only testing.
-
             val calendar = generateCalendarUseCase()
             _uiState.value = CalendarUiState.Success(calendar.currentDate, calendar.days)
         }

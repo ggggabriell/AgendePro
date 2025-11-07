@@ -1,4 +1,4 @@
-package com.agendepro.calendar.ui
+package com.agendepro.calendar.ui.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.clickable
@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
+import com.agendepro.design_system.ui.MaterialThemeExtensions.spacing
 import java.time.LocalDate
 import java.time.format.TextStyle
 import java.util.Locale
@@ -32,18 +32,17 @@ fun CalendarHeader(
     onToggle: () -> Unit
 ) {
     val locale = Locale.getDefault()
-
     val monthName = currentDate.month.getDisplayName(TextStyle.FULL, locale)
         .replaceFirstChar { it.titlecase(locale) }
-
     val year = currentDate.year
 
+    val rotation by animateFloatAsState(targetValue = if (isExpanded) 180f else 0f)
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .clickable { onToggle() }
-            .padding(16.dp),
+            .padding(MaterialTheme.spacing.medium),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Start
     ) {
@@ -52,12 +51,7 @@ fun CalendarHeader(
             style = MaterialTheme.typography.titleLarge
         )
 
-        Spacer(modifier = Modifier.width(8.dp))
-
-        val rotation by animateFloatAsState(
-            targetValue = if (isExpanded) 180f else 0f,
-            label = "arrow_rotation"
-        )
+        Spacer(modifier = Modifier.width(MaterialTheme.spacing.small))
 
         Icon(
             imageVector = Icons.Default.KeyboardArrowDown,
