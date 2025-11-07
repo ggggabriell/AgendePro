@@ -2,10 +2,11 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
-    namespace = "com.agendepro.common"
+    namespace = "com.agendepro.design_system"
     compileSdk = 35
 
     defaultConfig {
@@ -31,19 +32,23 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
+    implementation(platform(libs.compose.bom))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.bundles.compose)
 
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
-    api(platform(libs.koin.bom))
-    api(libs.bundles.koin)
-    api(libs.koin.android)
+    implementation(platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
+    implementation(libs.koin.android)
     ksp(libs.koin.ksp.compiler)
 }

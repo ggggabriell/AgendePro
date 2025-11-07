@@ -39,14 +39,13 @@ android {
 }
 
 dependencies {
-
+    api(project(":design_system"))
     api(platform(libs.compose.bom))
     api(libs.androidx.activity.compose)
     api(libs.bundles.compose)
 
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
-    implementation(libs.bundles.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     androidTestImplementation(libs.compose.test.junit4)

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.compose.compiler)
 }
 
 android {
@@ -31,19 +32,23 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
+    implementation(project(":core:ui"))
+    implementation(project(":common"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(platform(libs.koin.bom))
-    implementation(libs.bundles.koin)
-    implementation(libs.koin.android)
     ksp(libs.koin.ksp.compiler)
 }

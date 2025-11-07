@@ -1,4 +1,4 @@
-package com.agendepro.ui.ui.theme
+package com.agendepro.design_system.ui
 
 import androidx.compose.ui.graphics.Color
 

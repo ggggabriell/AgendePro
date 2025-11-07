@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    // General Actions.
+    <string name="retry">Try again</string>
+
+    // Content Description.
+    <string name="arrow_up" translatable="false">Arrow up</string>
+    <string name="arrow_down" translatable="false">Arrow down</string>
+    <string name="arrow_left" translatable="false">Arrow left</string>
+    <string name="arrow_right" translatable="false">Arrow right</string>
+</resources>
