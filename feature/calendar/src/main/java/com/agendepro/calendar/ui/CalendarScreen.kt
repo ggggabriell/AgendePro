@@ -36,7 +36,7 @@ fun CalendarScreenRoot(
 }
 
 @Composable
-fun CalendarScreen(
+private fun CalendarScreen(
     state: CalendarUiState,
     onAction: (CalendarAction) -> Unit
 ) {
