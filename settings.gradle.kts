@@ -21,7 +21,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "AgendePro"
-include(":app")
+include(":androidApp")
 include(":auth")
 include(":common")
 include(":core:navigation")
