@@ -7,12 +7,9 @@ data class Client(
     val phone: String,
     val category: ClientCategory = ClientCategory.NEW,
     val notes: String? = null,
-    )
-
-enum class ClientCategory {
-    NEW,
-    RECURRING,
-    VIP,
-    BLACKLISTED,
-    INACTIVE
-}
+    val birthday: String? = null,
+    val address: String? = null,
+    val gender: String? = null,
+    val createdAt: Long = System.currentTimeMillis(),
+    val updatedAt: Long = System.currentTimeMillis()
+)
