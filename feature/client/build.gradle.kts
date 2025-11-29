@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -34,7 +35,7 @@ android {
 }
 
 dependencies {
-    implementation(":core:database")
+    implementation(project(":core:database"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -42,6 +43,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(platform(libs.koin.bom))
     implementation(libs.bundles.koin)

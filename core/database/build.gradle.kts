@@ -22,6 +22,7 @@ kotlin {
             implementation(libs.runtime)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            api(libs.sqldelight.coroutines.ext)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.android)

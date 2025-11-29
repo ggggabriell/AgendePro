@@ -85,6 +85,7 @@ ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "kto
 android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
+sqldelight-coroutines-ext = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

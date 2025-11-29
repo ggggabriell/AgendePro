@@ -1,4 +1,3 @@
-
 package com.agendepro.client.domain.model
 
 enum class ClientCategory {
@@ -6,5 +5,12 @@ enum class ClientCategory {
     RECURRING,
     VIP,
     BLACKLISTED,
-    INACTIVE
+    INACTIVE;
+
+    companion object {
+        fun fromString(value: String): ClientCategory {
+            return entries.find { it.name.equals(value, ignoreCase = true) }
+                ?: throw IllegalArgumentException("Invalid value: $value")
+        }
+    }
 }

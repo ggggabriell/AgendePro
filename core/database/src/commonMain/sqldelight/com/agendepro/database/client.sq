@@ -1,0 +1,33 @@
+CREATE TABLE client (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT,
+    phone TEXT,
+    category TEXT NOT NULL,
+    notes TEXT,
+    birthday TEXT,
+    address TEXT,
+    gender TEXT,
+    createdAt INTEGER NOT NULL,
+    updatedAt INTEGER NOT NULL
+);
+
+selectAll:
+SELECT * FROM client;
+
+selectById:
+SELECT * FROM client WHERE id = ?;
+
+insertClient:
+INSERT INTO client(
+    name, email, phone, category, notes, birthday, address, gender, createdAt, updatedAt
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+deleteById:
+DELETE FROM client WHERE id = ?;
+
+updateClient:
+UPDATE client
+SET name = ?, email = ?, phone = ?, category = ?, notes = ?, birthday = ?, address = ?, gender = ?, updatedAt = ?
+WHERE id = ?;

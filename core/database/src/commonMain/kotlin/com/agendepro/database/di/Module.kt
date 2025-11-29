@@ -5,5 +5,5 @@ import org.koin.dsl.module
 
 val databaseModule = module {
     single { AgendeProDatabase(get()) }
-    single { get<AgendeProDatabase>().clientsQueries }
+    single { get<AgendeProDatabase>().clientQueries }
 }
