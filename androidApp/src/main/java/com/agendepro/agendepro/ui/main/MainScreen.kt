@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.agendepro.navigation.ui.NavGraph
-import com.agendepro.ui.ui.BottomNavigationBar
+import com.agendepro.ui.ui.bottom_navigation.BottomNavigationBar
 
 @Composable
 fun MainScreen(

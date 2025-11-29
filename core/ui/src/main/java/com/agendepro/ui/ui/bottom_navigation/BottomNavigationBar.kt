@@ -1,4 +1,4 @@
-package com.agendepro.ui.ui
+package com.agendepro.ui.ui.bottom_navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
