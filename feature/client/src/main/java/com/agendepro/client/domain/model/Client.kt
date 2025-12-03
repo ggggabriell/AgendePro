@@ -12,4 +12,20 @@ data class Client(
     val gender: String,
     val createdAt: Long,
     val updatedAt: Long
-)
+) {
+    companion object {
+        fun buildEmpty() = Client(
+            id = 0,
+            name = "",
+            email = "",
+            phone = "",
+            category = ClientCategory.NEW,
+            notes = "",
+            birthday = "",
+            address = Address.buildEmpty(),
+            gender = "",
+            createdAt = 0,
+            updatedAt = 0
+        )
+    }
+}
