@@ -1,4 +1,4 @@
-CREATE TABLE client (
+CREATE TABLE clientEntity (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT,
@@ -13,21 +13,21 @@ CREATE TABLE client (
 );
 
 selectAll:
-SELECT * FROM client;
+SELECT * FROM clientEntity;
 
 selectById:
-SELECT * FROM client WHERE id = ?;
+SELECT * FROM clientEntity WHERE id = ?;
 
 insertClient:
-INSERT INTO client(
+INSERT INTO clientEntity(
     name, email, phone, category, notes, birthday, address, gender, createdAt, updatedAt
 )
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 deleteById:
-DELETE FROM client WHERE id = ?;
+DELETE FROM clientEntity WHERE id = ?;
 
 updateClient:
-UPDATE client
+UPDATE clientEntity
 SET name = ?, email = ?, phone = ?, category = ?, notes = ?, birthday = ?, address = ?, gender = ?, updatedAt = ?
 WHERE id = ?;
