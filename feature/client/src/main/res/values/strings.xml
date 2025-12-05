@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="client_list_screen_title">Clientes</string>
+    <!-- CLIENTS LIST   -->
+    <string name="client_list_screen_title">Clients</string>
+    <string name="client_list_screen_search_label">Search Clients</string>
+
 </resources>
