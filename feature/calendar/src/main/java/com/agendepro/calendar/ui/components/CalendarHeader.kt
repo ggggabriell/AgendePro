@@ -60,7 +60,7 @@ fun CalendarHeader(
 
         Icon(
             imageVector = Icons.Default.KeyboardArrowDown,
-            contentDescription = stringResource(UiR.string.arrow_down),
+            contentDescription = stringResource(UiR.string.content_desc_arrow_down),
             modifier = Modifier.rotate(rotation)
         )
     }

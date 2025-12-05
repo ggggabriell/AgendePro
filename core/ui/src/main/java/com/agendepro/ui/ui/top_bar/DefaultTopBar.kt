@@ -33,7 +33,7 @@ fun DefaultTopBar(
             IconButton(onClick = onBackClick) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.arrow_left)
+                    contentDescription = stringResource(R.string.content_desc_arrow_left)
                 )
             }
         },

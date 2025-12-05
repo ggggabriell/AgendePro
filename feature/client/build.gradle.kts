@@ -55,5 +55,6 @@ dependencies {
     implementation(platform(libs.koin.bom))
     implementation(libs.bundles.koin)
     implementation(libs.koin.android)
+    implementation(libs.koin.android.workmanager)
     ksp(libs.koin.ksp.compiler)
 }
